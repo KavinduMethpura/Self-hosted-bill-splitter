@@ -1,0 +1,24 @@
+{
+  "parse": [
+    { "input": "12.34", "currency": "USD", "minor": 1234 },
+    { "input": "12", "currency": "USD", "minor": 1200 },
+    { "input": "12.5", "currency": "USD", "minor": 1250 },
+    { "input": "1,234.56", "currency": "EUR", "minor": 123456 },
+    { "input": "0.1", "currency": "USD", "minor": 10 },
+    { "input": "1500", "currency": "JPY", "minor": 1500 },
+    { "input": "1.5", "currency": "JPY", "minor": null },
+    { "input": "1.234", "currency": "KWD", "minor": 1234 },
+    { "input": "12.345", "currency": "USD", "minor": null },
+    { "input": "-5", "currency": "USD", "minor": null },
+    { "input": "abc", "currency": "USD", "minor": null }
+  ],
+  "convert": [
+    { "amount": 1000, "from": "USD", "to": "USD", "rate": 1, "result": 1000 },
+    { "amount": 1000, "from": "USD", "to": "AUD", "rate": 1.5321, "result": 1532 },
+    { "amount": 1005, "from": "EUR", "to": "USD", "rate": 1.1, "result": 1106 },
+    { "amount": 1500, "from": "JPY", "to": "AUD", "rate": 0.0102, "result": 1530 },
+    { "amount": 1234, "from": "USD", "to": "JPY", "rate": 151.37, "result": 1868 },
+    { "amount": 1000, "from": "KWD", "to": "USD", "rate": 3.25, "result": 325 },
+    { "amount": 333, "from": "LKR", "to": "AUD", "rate": 0.005, "result": 2 }
+  ]
+}

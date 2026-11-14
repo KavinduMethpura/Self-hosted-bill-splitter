@@ -1,0 +1,33 @@
+# Self-host with:   docker compose up -d
+# Then open http://localhost:3000 (or put it behind your reverse proxy with HTTPS).
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      DATABASE_URL: postgres://splitter:${POSTGRES_PASSWORD:-splitter}@db:5432/splitter
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-600}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: splitter
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-splitter}
+      POSTGRES_DB: splitter
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U splitter -d splitter"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  db-data:

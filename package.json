@@ -1,0 +1,16 @@
+{
+  "name": "splitter",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "build": "npm run build -w packages/core && npm run build -w server && npm run build -w web",
+    "test": "npm run build -w packages/core && npm test -w packages/core && npm test -w server",
+    "dev:server": "npm run dev -w server",
+    "dev:web": "npm run dev -w web"
+  }
+}

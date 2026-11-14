@@ -1,0 +1,12 @@
+[
+  { "name": "nothing owed", "balances": { "a": 0, "b": 0 }, "count": 0 },
+  { "name": "one debt", "balances": { "a": 500, "b": -500 }, "count": 1 },
+  { "name": "two pairs that greedy would tangle",
+    "balances": { "a": 700, "b": 300, "c": -300, "d": -700 }, "count": 2 },
+  { "name": "zero-sum subgroups",
+    "balances": { "a": 6, "b": 5, "c": 4, "d": -4, "e": -5, "f": -6 }, "count": 3 },
+  { "name": "chain",
+    "balances": { "a": -1000, "b": 400, "c": 600 }, "count": 2 },
+  { "name": "greedy needs 4, optimum 3",
+    "balances": { "a": 10, "b": 10, "c": -7, "d": -3, "e": -10 }, "count": 3 }
+]
